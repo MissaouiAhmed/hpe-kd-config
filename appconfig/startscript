@@ -11,5 +11,5 @@ NODE_ID=$(configcli namespace node id)
 FQDN=$(configcli namespace node fqdn)
 
 if [[ "$NODE_ID" == "1" ]]; then
-   /opt/minifi-1.19.0/bin/minifi.sh start
+   /root/nifi-1.18.0/bin/nifi.sh start
 fi
