@@ -12,4 +12,5 @@ FQDN=$(configcli namespace node fqdn)
 
 if [[ "$NODE_ID" == "1" ]]; then
     echo "Config OK"
+    /init
 fi
