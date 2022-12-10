@@ -1,15 +1,22 @@
-#!/bin/env bash
-### Error for wrong option handled ###
-if [[ "$1" == "--addnodes" ]] || [[ "$1" == "--delnodes" ]] || [[ "$1" == "--configure" ]]; then
-  echo "Valid values. So execute the later code"
+#!/usr/bin/env bash
+
+chmod 755 /opt/guestconfig
+
+
+
+if [[ "$1" == "--addnodes" ]]; then
+    ## Nothing to do on the existing nodes when we receive this notification.
+    exit 0
+elif [[ "$1" == "--delnodes" ]]; then
+    ## Nothing to do on the existing nodes when we receive this notification.
+    exit 0
+elif [[ "$1" == "--configure" ]]; then
+    log "Starting configuration ... "
+
+    ## Fall through to start the configuration.
 else
-  echo "ERROR: Unknown command line option(s): '$@'"
-  exit 10
+    echo "ERROR: Unknown command line option(s): '$@'"
+    exit 10
 fi
 
-NODE_ID=$(configcli namespace node id)
-FQDN=$(configcli namespace node fqdn)
 
-if [[ "$NODE_ID" == "1" ]]; then
-    echo "Config OK"
-fi
