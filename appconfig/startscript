@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 
-chmod 755 /opt/guestconfig
 
-
+echo "param"
+echo $1
 
 if [[ "$1" == "--addnodes" ]]; then
     ## Nothing to do on the existing nodes when we receive this notification.
@@ -14,9 +14,10 @@ elif [[ "$1" == "--configure" ]]; then
     log "Starting configuration ... "
 
     ## Fall through to start the configuration.
+   
 else
     echo "ERROR: Unknown command line option(s): '$@'"
-    exit 10
+    exit 0
 fi
 
 
